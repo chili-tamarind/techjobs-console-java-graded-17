@@ -73,9 +73,10 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            // Case-insensitive
+            String aValue = row.get(column).toUpperCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
@@ -97,9 +98,10 @@ public class JobData {
         // TODO - implement this method
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+
         for (HashMap<String, String> row : allJobs) {   // For each row
-            for (String aValue : row.values()) {        // For each value in row
-                 if (aValue.contains(value)) {
+            for (String aValue : row.values()) {        // For each value in row, case-insensitive
+                 if (aValue.toUpperCase().contains(value.toUpperCase())) {
                     jobs.add(row);
                  }
             }
